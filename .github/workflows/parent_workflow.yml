@@ -25,6 +25,8 @@ jobs:
         uses: dcharan/protractor@master
         with:
           who-to-greet: 'Mona the Octocat'
+      - run: cat cat random.txt 
+        shell: bash
       - run: echo random-number
         shell: bash
     
