@@ -16,7 +16,7 @@ jobs:
         shell: bash
 
       - name: run oneline script
-        run: echo hello, world
+        run: echo "hello, world"
 
   call_resuable:
     uses: dcharan/protractor/.github/workflows/resuable.yml@master
