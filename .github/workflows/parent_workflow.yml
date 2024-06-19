@@ -11,7 +11,22 @@ on:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:   
-  call-workflow-passing-data:
-    uses: dcharan/protractor/.github/workflows/child_workflow.yml@master
+# jobs:   
+#   call-workflow-passing-data:
+#     uses: dcharan/protractor/actions.yml@main
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v4
+      - id: foo
+        uses: dcharan/protractor/actions.yml@main
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
+        env:
+          RANDOM_NUMBER: ${{ steps.foo.outputs.random-number }}    
     
