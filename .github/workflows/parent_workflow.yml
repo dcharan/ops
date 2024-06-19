@@ -6,17 +6,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  hello_world_job:
-    runs-on: ubuntu-latest
-    name: A job to say hello
-    steps:
-      - uses: actions/checkout@v4
+  # hello_world_job:
+  #   runs-on: ubuntu-latest
+  #   name: A job to say hello
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - run: cat random.txt 
-        shell: bash
+  #     - run: cat random.txt 
+  #       shell: bash
 
-      - name: run oneline script
-        run: echo "hello, world"
+  #     - name: run oneline script
+  #       run: echo "hello, world"
 
   call_resuable:
     uses: dcharan/protractor/.github/workflows/resuable.yml@master
