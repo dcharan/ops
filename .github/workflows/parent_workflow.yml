@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: foo
-        uses: dcharan/protractor/actions.yml@main
+        uses: dcharan/protractor/actions.yml@master
         with:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number "$RANDOM_NUMBER"
