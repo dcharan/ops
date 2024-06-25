@@ -5,6 +5,6 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: dcharan/protractor/resuable_action/ressuable_workflow.yml@master
+    uses: dcharan/protractor/.github/workflows/resuable_action/ressuable_workflow.yml@master
     with:
       node: 14
