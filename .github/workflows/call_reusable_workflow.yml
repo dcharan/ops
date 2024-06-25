@@ -6,6 +6,7 @@ on:
       node:
         required: true
         type: string
+        default: "12"
 
 jobs:
   call-workflow-passing-data:
