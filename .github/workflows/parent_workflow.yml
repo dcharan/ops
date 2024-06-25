@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: A job to say hello
-          uses: dcharan/protractor/.github/resuable_action@master
+          uses: dcharan/protractor/resuable_action@master
           with: 
             hello_world_var: "charan from caller"
 
