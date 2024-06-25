@@ -5,6 +5,7 @@ on:
 
 jobs:
   call-reusable-workflow:
+    runs-on: ubuntu-latest
     uses: dcharan/protractor/.github/workflows/ressuable_workflow.yml@master
     with:
       node: 14
