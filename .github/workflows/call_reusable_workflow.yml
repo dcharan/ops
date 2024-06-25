@@ -3,8 +3,20 @@ name: Call a reusable workflow
 on:
   workflow_dispatch:
 
+
+# jobs:
+#   call-reusable-workflow:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+
+#       - name: Output the input value
+#         uses: dcharan/protractor/.github/workflows/ressuable_workflow.yml@master
+#         with:
+#           node: 14
+
 jobs:
-  call-reusable-workflow:
+  call-workflow-passing-data:
     uses: dcharan/protractor/.github/workflows/ressuable_workflow.yml@master
     with:
       node: 14
