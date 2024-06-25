@@ -19,7 +19,6 @@ jobs:
   #       run: echo "hello, world"
 
   call_resuable:
-    uses: dcharan/protractor/.github/workflows/resuable.yml@master
+    uses: dcharan/protractor/.github/resuable_action@master
     with: 
-      image_name: "afdfd"
-      tag: "sometag"
+      hello_world_var: "charan from caller"
