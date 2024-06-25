@@ -9,6 +9,6 @@ on:
 
 jobs:
   call-workflow-passing-data:
-    uses: dcharan/protractor/.github/workflows/resuable_action/ressuable_workflow.yml@master
+    uses: dcharan/protractor/.github/workflows/ressuable_workflow.yml@master
     with:
       node: ${{ inputs.node }}
