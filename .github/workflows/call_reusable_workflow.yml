@@ -1,0 +1,10 @@
+name: Call a reusable workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-reusable-workflow:
+    uses: dcharan/protractor/resuable_action/ressuable_workflow.yml
+    with:
+      node: 14
