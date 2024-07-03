@@ -9,12 +9,27 @@ on:
         default: 'default'
 
 jobs:
+  determine-environment:
+    runs-on: ubuntu-latest 
+    outputs:
+      runner-type: ${{ steps.set-runner-type.outputs.runner-type }}
+    steps:
+      - name: Set runner type
+        id: set-runner-type
+        run: |
+          if [[ "${{ github.event.inputs.runner }}" == "prod" || "${{ github.event.inputs.runner }}" == "prod-internal" || "${{ github.event.inputs.runner }}" == "prod-customer" ]]; then
+            echo "::set-output name=runner-type::ubuntu-24.04"
+          else
+            echo "::set-output name=runner-type::ubuntu-latest"
+          fi
+
   hello_world_job:
-    runs-on: ${{ github.event.inputs.runner == 'prod' || github.event.inputs.runner == 'prod-internal' || github.event.inputs.runner == 'prod-customer' ? 'ubuntu-24.04' : 'ubuntu-latest' }}
+    needs: determine-environment
+    runs-on: ${{ needs.determine-environment.outputs.runner-type }}
     name: A job to say hello
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        
+
       - name: Say hello
-        run: echo "Hello from ${{ github.event.inputs.runner }} environment!"
+        run: echo "Hello from ${{ needs.determine-environment.outputs.runner-type }} environment!"
