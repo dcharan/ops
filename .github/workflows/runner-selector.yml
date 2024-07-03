@@ -11,8 +11,7 @@ on:
 jobs:
   determine-environment:
     runs-on: ubuntu-latest 
-    outputs:
-      runner-type: ${{ steps.set-runner-type.outputs.runner-type }}
+      TEST_ENV: "test"
     steps:
       - name: Set runner type
         id: set-runner-type
@@ -22,6 +21,10 @@ jobs:
           else
             echo "::set-output name=runner-type::ubuntu-latest"
           fi
+    outputs:
+      runner-type: ${{ steps.set-runner-type.outputs.runner-type }}  
+      NEW_ENV: "new output value"
+
 
   hello_world_job:
     needs: determine-environment
@@ -32,4 +35,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Say hello
-        run: echo "Hello from ${{ needs.determine-environment.outputs.runner-type }} environment!"
+        run: echo "Hello from ${{ needs.determine-environment.outputs.runner-type }} ${{ needs.determine-environment.outputs.NEW_ENV }}  environment!"
