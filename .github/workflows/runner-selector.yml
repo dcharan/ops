@@ -11,7 +11,6 @@ on:
 jobs:
   determine-environment:
     runs-on: ubuntu-latest 
-      TEST_ENV: "test"
     steps:
       - name: Set runner type
         id: set-runner-type
