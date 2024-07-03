@@ -1,0 +1,20 @@
+name: Conditional Runner Workflow
+
+on: 
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: 'Define env name'     
+        required: true
+        default: 'default'
+
+jobs:
+  hello_world_job:
+    runs-on: ${{ github.event.inputs.runner == 'prod' || github.event.inputs.runner == 'prod-internal' || github.event.inputs.runner == 'prod-customer' ? 'ubuntu-24.04' : 'ubuntu-latest' }}
+    name: A job to say hello
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Say hello
+        run: echo "Hello from ${{ github.event.inputs.runner }} environment!"
