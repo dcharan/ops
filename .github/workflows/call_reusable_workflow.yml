@@ -11,6 +11,7 @@ on:
         required: true
         type: boolean
         default: false
+        description: where its cert manager prod env or nonprod env
 jobs:
   call-workflow-passing-data:
     uses: dcharan/protractor/.github/workflows/ressuable_workflow.yml@master
