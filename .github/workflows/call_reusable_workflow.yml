@@ -9,8 +9,8 @@ on:
         default: "12"
       environment:
         required: true
-        type: string
-        default: "nonprod"
+        type: boolean
+        default: false
 jobs:
   call-workflow-passing-data:
     uses: dcharan/protractor/.github/workflows/ressuable_workflow.yml@master
